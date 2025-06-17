@@ -1,14 +1,20 @@
 from document_loader import DocumentLoader
+from news_retriever import NewsRetriever
 import os
 import re
 import numpy as np
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 
 import PyPDF2
 import markdown
 from typing import List, Dict, Tuple, Optional
+
+import requests
+import feedparser
+from bs4 import BeautifulSoup
+import time
 
 from nltk.tokenize import sent_tokenize
 import nltk
@@ -27,6 +33,7 @@ import seaborn as sns
 from tqdm import tqdm
 import warnings
 warnings.filterwarnings('ignore')
+
 
 class RAGSummarizer:
     def __init__(self):
@@ -276,20 +283,20 @@ def create_sample_docs():
     return ["sample_docs/ai_article.txt", "sample_docs/climate_report.txt", "sample_docs/tech_trends.txt"]
 
 
-if __name__ == "__main__":
-    print("Simple RAG Document Summarizer")
-    print("=" * 40)
+# if __name__ == "__main__":
+#     print("Simple RAG Document Summarizer")
+#     print("=" * 40)
     
-    rag_summarizer = RAGSummarizer()
-    sample_files = create_sample_docs()
+#     rag_summarizer = RAGSummarizer()
+#     sample_files = create_sample_docs()
     
-    ## Process each document
-    for file_path in sample_files:
-        try:
-            results = rag_summarizer.summarize_document(file_path)
-            rag_summarizer.display_results(results)
-            print("\n" + "="*80 + "\n")
-        except Exception as e:
-            print(f"Error processing {file_path}: {e}")
+#     ## Process each document
+#     for file_path in sample_files:
+#         try:
+#             results = rag_summarizer.summarize_document(file_path)
+#             rag_summarizer.display_results(results)
+#             print("\n" + "="*80 + "\n")
+#         except Exception as e:
+#             print(f"Error processing {file_path}: {e}")
     
-    print("Done! Check the sample_docs folder for the test documents.")
+    # print("Done! Check the sample_docs folder for the test documents.")
