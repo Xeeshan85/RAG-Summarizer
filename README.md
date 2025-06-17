@@ -1,4 +1,4 @@
-# Enhanced RAG Document & News Summarizer
+# RAG Document & News Summarizer
 
 A comprehensive implementation of Retrieval-Augmented Generation (RAG) for document summarization with real-time news fetching and processing capabilities. The system combines semantic chunking, vector search, and automated news retrieval to keep you updated with the latest world news.
 
@@ -47,10 +47,10 @@ python main.py
 
 ### Document Summarization
 ```python
-from rag_summarizer import EnhancedRAGSummarizer
+from rag_summarizer import RAGSummarizer
 
 # Initialize
-rag = EnhancedRAGSummarizer()
+rag = RAGSummarizer()
 
 # Summarize a document
 results = rag.summarize_document("your_document.pdf")
